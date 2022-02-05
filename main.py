@@ -46,6 +46,8 @@ try:
         color_capture = cv2.flip(cv2.cvtColor(color_capture, cv2.COLOR_BGR2RGB), 1)
         if color_capture.shape[1] != CAPTURE_WIDTH or color_capture.shape[0] != CAPTURE_HEIGHT:
             print("Could not set the desired capture size")
+            CAPTURE_WIDTH, CAPTURE_HEIGHT = color_capture.shape[1], color_capture.shape[0]
+            pygame.display.set_mode((CAPTURE_WIDTH, CAPTURE_HEIGHT))
 
         # Draw the image
         plot1.fill(BLACK)
